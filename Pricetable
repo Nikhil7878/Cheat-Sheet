@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .active {background-color: #008f88;color: white;border: 0;padding: 10px 30px;cursor: pointer;}
+
+        .deactive {background-color: #025652;color: white;border: 0;padding: 10px 30px;cursor: pointer;}
+
+        .price_display {font-size: 60px;}
+        
+        .price_table {background: #e1e1e1;padding: 50px;width: 300px;text-align: center;}
+        .price_table p{color: #008f88;font-size: 20px;}
+    </style>
+</head>
+<body>
+
+<div class="price_table">
+    <h2>ANNUAL MEMBERSHIP</h2>
+    <p>Early Bird Offer</p>
+
+    <div class="change_valu">
+        <div id="price" class="price_display">$35</div>
+    </div>
+
+    <div class="price_button">
+        <button id="monthlyBtn" class="active" onclick="setPrice('monthly')">PAY MONTHLY</button>
+        <button id="annualBtn" class="deactive" onclick="setPrice('annual')">PAY YEARLY</button>
+    </div>
+
+    <div class="get_start_button"><button>Get Started</button></div>
+</div>
+
+<script>
+function setPrice(plan) {
+    const priceElement = document.getElementById("price");
+    const monthlyBtn = document.getElementById("monthlyBtn");
+    const annualBtn = document.getElementById("annualBtn");
+
+    if (plan === 'monthly') {
+        priceElement.innerText = "$35";
+        monthlyBtn.classList.add("active");
+        monthlyBtn.classList.remove("deactive");
+        annualBtn.classList.add("deactive");
+        annualBtn.classList.remove("active");
+    } else if (plan === 'annual') {
+        priceElement.innerText = "$390";
+        annualBtn.classList.add("active");
+        annualBtn.classList.remove("deactive");
+        monthlyBtn.classList.add("deactive");
+        monthlyBtn.classList.remove("active");
+    }
+}
+</script>
+
+</body>
+</html>
